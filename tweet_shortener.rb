@@ -24,8 +24,15 @@ def word_substituter(string)
   .join(" ")
 end
 
-def bulk_tweet_shortener(tweet)
-
+def bulk_tweet_shortener(string)
+  string.split.collect do |word|
+    if dictionary.keys.include?(word.downcase)
+      word = dictionary[word.downcase]
+    else
+      word
+    end
+  end
+  puts word.join(" ")
 end
 
 def selective_tweet_shortener
